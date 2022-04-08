@@ -1,32 +1,4 @@
-/*
-    1. use async function
-        - try and catch method?
-                or
-        - possible test, 
-        i.e. => if(!res.ok) thow res.statusText
-                or both/and....
-    2. modify the value of the header property:
 
-     Header{
-         'authorization': API_KEY,
-     }            
-     */
-//const key = '563492ad6f9170000100000185c07e7c4fa94ea9a8b1d1dae1454e6d';
-let options = {
-    method: 'GET',
-    mode: 'no-cors',
-    headers: {
-        'authorization': '563492ad6f9170000100000185c07e7c4fa94ea9a8b1d1dae1454e6d',
-        
-    }
-}
-
-/*fetch(url)
-.then(res => res.json())
-.then(data =>{
-    console.log('HERES THE DATA=>',data)
-    return data;
-})*/
 
 const container = document.getElementById('mainContainer');
 const header = document.getElementById('header');
@@ -95,6 +67,7 @@ const inputText = document.getElementById("inputText");// get the input el id an
 let clearTextField = ()=>{
     return inputText.value = "";
 }
+
 const form = document.getElementById('form');
     form.addEventListener('submit', (e)=>{
         e.preventDefault();// prevent the event from refreshing page
@@ -105,7 +78,7 @@ const form = document.getElementById('form');
         console.log('input text value =>', searchTopic )
     
     
-    let url = `https://api.unsplash.com/search/photos?query=${searchTopic}&client_id=BMOohXS2YcYfJKQkYYADqtZkkSWVQGpgRZ3qfiK_9Tk`;
+    let url = `https://api.unsplash.com/search/photos?query=${searchTopic}&per_page=21&client_id=BMOohXS2YcYfJKQkYYADqtZkkSWVQGpgRZ3qfiK_9Tk`;
     // This is the ajax/fetch call that gets the content for the body    
     async function getPhotoData(url) {
         try {
@@ -134,10 +107,9 @@ if(searchTopic === "" || searchTopic === undefined ){
         objs.forEach((e, i) => {
             console.log('Each OBJECT LOOING=>', e);// give it an id tor reassign it  
             let div = document.createElement('div');
-            let divId = div.id = 'resultsContainer';
+        //    let divId = div.id = 'resultsContainer';
             div.classList.add('results-container');
-            console.log('divId=>', divId)
-            divId.innerHTML=`
+            div.innerHTML=`
             <a href=${e.links.download} target="_blank">
             <img class="photo" src="${e.urls.small}"/>
             </a>
@@ -156,7 +128,7 @@ if(searchTopic === "" || searchTopic === undefined ){
             <div>
             `
             content.appendChild(div);
-            
+            clearTextField();
         });
     })
 }
