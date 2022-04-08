@@ -30,7 +30,7 @@ window.onscroll = () => {
     addStickyContent()
 }
 
-let ranURL = 'https://api.unsplash.com/photos/random?query=background&orientation=portrait&content_filter=high&client_id=BMOohXS2YcYfJKQkYYADqtZkkSWVQGpgRZ3qfiK_9Tk&SameSite=strict'
+let ranURL = 'https://api.unsplash.com/photos/random?query=background&orientation=portrait&content_filter=high&client_id=APIGOESHERE'
 
 async function getCoverPhoto(url) {
     try {
@@ -83,7 +83,7 @@ form.addEventListener('submit', (e) => {
     console.log('input text value =>', searchTopic)
 
 
-    let url = `https://api.unsplash.com/search/photos?query=${searchTopic}&per_page=21&client_id=BMOohXS2YcYfJKQkYYADqtZkkSWVQGpgRZ3qfiK_9Tk`;
+    let url = `https://api.unsplash.com/search/photos?query=${searchTopic}&per_page=21&client_id=APIKEYGOESHERE`;
     // This is the ajax/fetch call that gets the content for the body    
     async function getPhotoData(url) {
         try {
