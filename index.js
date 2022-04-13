@@ -30,7 +30,7 @@ window.onscroll = () => {
     addStickyContent()
 }
 
-let ranURL = 'https://api.unsplash.com/photos/random?query=background&orientation=portrait&content_filter=high&client_id=APIGOESHERE'
+let ranURL = 'https://api.unsplash.com/photos/random?query=background&orientation=portrait&content_filter=high&client_id=APIGOESHERE'//
 
 async function getCoverPhoto(url) {
     try {
@@ -53,7 +53,7 @@ getCoverPhoto(ranURL)
        <img class="coverPhoto" src= "${photoObj.urls.raw}&w=1360">
        <h4 class='greetingText'> <span>"A picture is worth a thousand words"</span>
        <span>"Photography is the art of transporting the past to the future"</span>
-       <span>"Photography is the story I fail to put ito words"</span>
+       <span>"Photography is the story I fail to put into words"</span>
        <span>"Life is like Photography, you need the negatives to develop"</span>
        <span>"You don't take a photograph, you make it"</span>
        <span>"Life is like Photography, you need the negatives to develop"</span>
@@ -83,7 +83,7 @@ form.addEventListener('submit', (e) => {
     console.log('input text value =>', searchTopic)
 
 
-    let url = `https://api.unsplash.com/search/photos?query=${searchTopic}&per_page=21&client_id=APIKEYGOESHERE`;
+    let url = `https://api.unsplash.com/search/photos?query=${searchTopic}&per_page=21&client_id=APIKEYGOESHERE`;//APIKEYGOESHERE
     // This is the ajax/fetch call that gets the content for the body    
     async function getPhotoData(url) {
         try {
@@ -108,7 +108,8 @@ form.addEventListener('submit', (e) => {
         // here I called the async function 
         getPhotoData(url)
             .then(objs => {
-                console.log('pObjs results =>', objs)
+                console.log('pObjs results =>', objs);
+                content.innerHTML = "";
                 objs.forEach((e, i) => {
                     console.log('Each OBJECT LOOING=>', e); // give it an id tor reassign it  
                     let div = document.createElement('div');

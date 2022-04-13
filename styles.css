@@ -147,6 +147,7 @@ span {
     color: black;
     padding-bottom: 10px;
     border-bottom: solid 1px #dadada;
+    max-width: 345px;
 
 }
 
